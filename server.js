@@ -11,9 +11,12 @@ router.get('/', ctx => {
     message: 'webhook'
   }
 })
+
 router.post('/webhook', ctx => {
   const body = ctx.request.body
-  console.log('webhook received, body:', body);
+  const query = ctx.request.query
+  console.log(`Webhook received, query:`, query, 'body:', body)
+  // console.log('webhook received, body:', body);
   const result = 'ok'
   ctx.type = 'json'
   ctx.body = {
